@@ -276,7 +276,7 @@ follows_char(scanner_t *s, char c)
 }
 
 static bool 
-follows_pair(scanner_t *s, char pair[static 2])
+follows_pair(scanner_t *s, char pair[2])
 {
     return s->cur+1 < s->len 
         && s->src[s->cur+0] == pair[0] 
@@ -284,7 +284,7 @@ follows_pair(scanner_t *s, char pair[static 2])
 }
 
 static bool 
-consume_pair(scanner_t *s, char pair[static 2])
+consume_pair(scanner_t *s, char pair[2])
 {
     bool ok = follows_pair(s, pair);
     if (ok) s->cur += 2;
