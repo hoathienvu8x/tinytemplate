@@ -1131,7 +1131,7 @@ tinytemplate_eval(const char *src, const instr_t *program,
                     top_iter->child = value;
                     top_iter->next_index++;
                 } else {
-                    index = instr->operands[0].as_size;
+                    index = (int) instr->operands[0].as_size;
                     iter_depth--;
                 }
                 break;
@@ -1258,7 +1258,7 @@ tinytemplate_eval(const char *src, const instr_t *program,
             }
 
             case OPCODE_JUMP:
-            index = instr->operands[0].as_size;
+            index = (int) instr->operands[0].as_size;
             break;
             
             case OPCODE_JCND:
@@ -1266,7 +1266,7 @@ tinytemplate_eval(const char *src, const instr_t *program,
                                      // stack is true, so the stack
                                      // can't be empty.
             if (!value_can_be_considered_true(types[stack_depth-1], stack[stack_depth-1]))
-                index = instr->operands[0].as_size;
+                index = (int) instr->operands[0].as_size;
             stack_depth--;
             break;
             
